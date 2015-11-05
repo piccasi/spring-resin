@@ -133,6 +133,7 @@ div.foot p a:link a:visited a:hover {
 		/* $(function () {
 			$('#myaccrdion').accordion();
 		  }); */
+		  
 
 		function addTab(title, url) {
 			if ($('#tt').tabs('exists', title)) {
