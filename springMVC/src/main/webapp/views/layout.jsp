@@ -40,6 +40,14 @@ div.top p {
 	font-family: Arial
 }
 
+.top {
+    text-align: center;
+    margin: 3px;
+    font-size: 22px;
+    color: #555;
+    font-family: Arial
+}
+
 div.foot p a:link a:visited a:hover {
 	color: #2965b1;
 	font-size: 12px;
