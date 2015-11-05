@@ -1,0 +1,16 @@
+SMAP
+_bbs_0manage__jsp.java
+JSP
+*S JSP
+*F
++ 1 bbs_manage.jsp
+WEB-INF/views/bbs/bbs_manage.jsp
++ 2 left.jsp
+WEB-INF/views/bbs/left.jsp
+*L
+2#1:32
+9#2,2:33,11
+10#2,2:45,3
+12#1:50
+17#1:51
+*E
