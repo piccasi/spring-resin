@@ -49,7 +49,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "article_index";
 	}
 	
 	@RequestMapping(value = "/layout.do")
@@ -110,10 +110,10 @@ public class HomeController {
 		pageList.add(30);
 		pageList.add(45);
 		List<User> userList = UserService.getUsers(page, rows);
-		retMap.put("total", userList.size());
+		retMap.put("total", 19);
 		retMap.put("rows", userList);
-		retMap.put("pageSize", 15);
-		retMap.put("pageList", pageList);
+		//retMap.put("pageSize", 15);
+		//retMap.put("pageList", pageList);
 		return retMap;
 	}
 	
