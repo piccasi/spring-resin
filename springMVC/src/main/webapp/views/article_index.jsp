@@ -64,10 +64,48 @@
 
 			//$('#dg').datagrid('hideColumn', id);
 		}
+		 
+	    /**
+	     * JQuery扩展方法，用户对JQuery EasyUI的DataGrid控件进行操作。
+	     */
+	    $.fn.extend({
+	    	/**
+	    	 * 修改DataGrid对象的默认大小，以适应页面宽度。
+	    	 * 
+	    	 * @param heightMargin
+	    	 *            高度对页内边距的距离。
+	    	 * @param widthMargin
+	    	 *            宽度对页内边距的距离。
+	    	 * @param minHeight
+	    	 *            最小高度。
+	    	 * @param minWidth
+	    	 *            最小宽度。
+	    	 * 
+	    	 */
+	    	resizeDataGrid : function(heightMargin, widthMargin, minHeight, minWidth) {
+	    		var height = $(document.body).height() - heightMargin;
+	    		var width = $(document.body).width() - widthMargin;
+	    		//var height = document.body.clientHeight - heightMargin;
+	    		//var width = document.body.clientWidth - widthMargin;
+	    		
+	    		//alert("scrollHeight:" + document.body.scrollHeight);
+	    		//alert("height:" + height);
+	    		//alert("width:" + width);
+	    		
+	    		height = height < minHeight ? minHeight : height;
+	    		width = width < minWidth ? minWidth : width;
+
+	    		$(this).datagrid('resize', {
+	    			height : height,
+	    			width : width
+	    		});
+	    	}
+	    });
 
 		$(function() {
-			//alert("come here");
-			$('#dg1').datagrid({
+			var datagridId = 'dg1';
+			
+			$('#' + datagridId).datagrid({
 				title : 'load data',
 				url : 'getUser.do',
 				queryParams : {
@@ -77,6 +115,7 @@
 				loadMsg : '加载中...',
 				toolbar : '#toolbar',
 				pagination : true,
+				fit : false,
 				fitColumns : true,
 				striped : true,
 				idField : 'id',
@@ -103,7 +142,21 @@
 					title : 'age',
 					width : 40
 				} ] ]
-			});
+			});	
+			
+			
+			//alert("body height:" + $(document.body).height());
+			//alert("body width:" + $(document.body).width());
+			
+			//alert("parent height:" + $('#' + datagridId).parent().height()); 
+			//alert("parent width:" + $('#' + datagridId).parent().width());
+			
+			//$('#' + datagridId).resizeDataGrid(5, 5, 0, 0);
+			
+		    // 当窗口大小发生变化时，调整DataGrid的大小  
+		    $(window).resize(function() {
+		        $('#' + datagridId).resizeDataGrid(5, 5, 300, 500);
+		    });  
 		});
 	</script>
 
